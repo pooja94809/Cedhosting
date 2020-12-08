@@ -19,6 +19,12 @@ input[type="button"]{
 	-o-transition:0.5s all;
 	-ms-transition:0.5s all;
 }
+#logo1{
+  color:#e7663f;
+}
+#logo2{
+  color:#585CA7;
+}
 
 h1,h2,h3,h4,h5,h6{
 	padding:0 0;
