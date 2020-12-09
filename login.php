@@ -1,19 +1,15 @@
-<!--
-Au
-Author: W3layouts
-Author URL: http://w3layouts.com
-License: Creative Commons Attribution 3.0 Unported
-License URL: http://creativecommons.org/licenses/by/3.0/
--->
 <?php 
+session_start();
 include("header.php"); 
-include("sql.php");
+include("Dbcon.php");
+require_once("User.php");
+$user= new user();
+$dbcon = new dbcon();
 if(isset($_POST['login'])){
-	$email= isset($_POST['email']);
-	echo $email;
-	$password= isset($_POST['pass'])?$_POST['pass']:'';
-	echo $password;
-	echo "<script'>alert('message');</script>";
+	$email= isset($_POST['email'])?$_POST['email']:'';
+	$password= isset($_POST['password'])?$_POST['password']:'';
+	$sql = $user -> login($email,$password,$dbcon-> conn);
+	
 }
 ?>
 		<!---login--->
