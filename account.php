@@ -3,6 +3,9 @@ session_start();
 include("header.php");
 require("Dbcon.php");
 require_once("User.php");
+// use PHPMailer\PHPMailer\PHPMailer;
+// use PHPMailer\PHPMailer\Exception;
+// require '/home/cedcoss/vendor/autoload.php';
 $user=new user();
 $dbcon= new dbcon();
 $errors = array();
@@ -11,6 +14,7 @@ $message = '';
 if(isset($_POST['submit'])){
 	$firstname= isset($_POST['first'])?$_POST['first']:'';
 	$lastname= isset($_POST['first'])?$_POST['last']:'';
+	$name = $firstname." ".$lastname;
 	$email= isset($_POST['email'])?$_POST['email']:'';
 	$password= isset($_POST['password'])?$_POST['password']:'';
 	$confirm= isset($_POST['confirm'])?$_POST['confirm']:'';
@@ -49,15 +53,49 @@ if(isset($_POST['submit'])){
     }else if (preg_match('[@_!#$%^&*()<>?/|}{~:]', $lastname) || is_numeric($lastname)==1 || preg_match('/\s/', $lastname)){
     	echo "<script>alert('In last name special character,numbers and spaces are not allowed');</script>";
     }else if($mobile=='1111111111'|| $mobile=='2222222222' || $mobile=='3333333333' || $mobile=='4444444444'|| $mobile=='5555555555' || $mobile=='6666666666'|| $mobile=='7777777777'|| $mobile=='8888888888'|| $mobile=='9999999999'|| $mobile=='0000000000'){
-    	echo "<script>alert('please enter valid mobile no.');</script>";
-    }else if(preg_match("/^(0|[+91]{3})?[7-9][0-9]{9}$/", $mobile)){
-    	echo "<script>alert('please enter valid mobile no.for zero');</script>";
-    }
+		echo "<script>alert('please enter valid mobile no.');</script>";
+	}
+    // }else if(preg_match("/^(0|[+91]{3})?[7-9][0-9]{9}$/", $mobile)){
+    // 	echo "<script>alert('please enter valid mobile no.for zero');</script>";
+    // }
 	else{
 		$sql = $user -> signup($firstname,$lastname,$email,$password,$question,$answer,$mobile,$dbcon-> conn);
+		$_SESSION['email']=$email;
+		$_SESSION['mobile']=$mobile;
+		// $otp = rand(1000,9999);
+		// $_SESSION['otp']=$otp;
+		
+		// $mail = new PHPMailer();
+		// try {
+		// $mail->isSMTP(true);
+		// $mail->Host = 'smtp.gmail.com';
+		// $mail->SMTPAuth = true;
+		// $mail->Username = 'poojakumari94809@gmail.com';
+		// $mail->Password = 'pooja,pk.';
+		// $mail->SMTPSecure = 'tls';
+		// $mail->Port = 587;
+
+		// $mail->setfrom('poojakumari94809@gmail.com', 'CedHosting');
+		// $mail->addAddress($email);
+		// $mail->addAddress($email, $name);
+
+		// $mail->isHTML(true);
+		// $mail->Subject = 'Account Verification';
+		// $mail->Body = 'Hi User,Here is your otp for account verification'.$otp;
+		// $mail->AltBody = 'Body in plain text for non-HTML mail clients';
+		// $mail->send();
+		// // header('location: verification.php?email=' . $email);
+		// echo ("<script>window.location.href='verification.php?email=".$email."&name=".$name."&mobile=".$mobile."';</script>");
+		// // echo ("<script type='text/javascript'>
+		// // 							location.href='account.php'</script>");
+		// } catch (Exception $e) {
+		// echo "Mailer Error: " . $mail->ErrorInfo;
+		// }
+		
 	}
-	
+
 }
+
 ?>
 
 		<!---login--->
@@ -112,7 +150,7 @@ if(isset($_POST['submit'])){
                                         <option value="childhood friend">What is the name of your favourite childhood friend?</option>
                                         <option value="favourite place">What was your favourite place to visit as a child?</option>
                                         <option value="dream job">What was your dream job as a child?</option>
-                                        <option value="teacher's nickname">What is your favourite teacher's nickname?</option>
+                                        <option value="teacher nickname">What is your favourite teacher's nickname?</option>
                                 </select>
 							 </div>
 							 <div>

@@ -5,6 +5,7 @@ include("Dbcon.php");
 require_once("User.php");
 $user= new user();
 $dbcon = new dbcon();
+$id=$_SESSION['ID'];
 if(isset($_POST['login'])){
 	$email= isset($_POST['email'])?$_POST['email']:'';
 	$password= isset($_POST['password'])?$_POST['password']:'';

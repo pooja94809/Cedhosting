@@ -1545,6 +1545,40 @@ a.button4:hover {
 	border:none;
 	outline:none;
 }
+.login-left form {
+	padding: 1em 0;
+}
+.login-left form div {
+	padding: 0 0 2em 0;
+}
+.login-left span {
+	color: #777;
+	font-size:0.8125em;
+	padding-bottom: 0.2em;
+	display: block;
+	text-transform: uppercase;
+}
+.login-left input[type="text"],.login-right input[type="password"] {
+	border: 1px solid #555;
+	outline-color:#08538C;
+	width: 96%;
+	font-size:0.8125em;
+	padding: 0.5em;
+}
+.login-left input[type="submit"] {
+	background: #e7663f;
+	color: #FFF;
+	font-size: 1em;
+	padding: 0.7em 1.2em;
+	transition: 0.5s all;
+	-webkit-transition: 0.5s all;
+	-moz-transition: 0.5s all;
+	-o-transition: 0.5s all;
+	display: inline-block;
+	text-transform: uppercase;
+	border:none;
+	outline:none;
+}
 /*--register--*/
 .register{
 	padding:5em 0;

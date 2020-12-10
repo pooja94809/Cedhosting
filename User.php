@@ -13,9 +13,11 @@ class user{
         		}
         	}
         }else{
-        	$sql = "INSERT INTO tbl_user(`email`,`name`,`mobile`,`email_approved`,`phone_approved`,`active`,`is_admin`,`sign_up_date`,`password`,`security_question`,`security_answer`) VALUES('".$email."','".$name."','".$mobile."','0','0','0','1',NOW(),'".$password."','".$question."','".$answer."')";
+        	$sql = "INSERT INTO tbl_user(`email`,`name`,`mobile`,`email_approved`,`phone_approved`,`active`,`is_admin`,`sign_up_date`,`password`,`security_question`,`security_answer`) VALUES('".$email."','".$name."','".$mobile."','0','0','0','0',NOW(),'".$password."','".$question."','".$answer."')";
         	if ($conn-> query($sql) === TRUE) {
-	        	echo '<script>alert("you are registered successfully")</script>';
+				echo ("<script>window.location.href='verification.php?email=".$email."&name=".$name."&mobile=".$mobile."';</script>");
+
+	        	// echo '<script>alert("you are registered successfully")</script>';
 
 	        } else {
 	            echo "Error: " . $sql . "<br>" . $conn->error;
@@ -30,12 +32,17 @@ class user{
 			$this -> result = $conn -> query($sql); 
 			if ($this -> result -> num_rows > 0){
 				while($row = $this -> result->fetch_assoc()) {
-					// $_SESSION['ID']=$row['id'];
-					// $_SESSION['email']=$email;
-					// $_SESSION['password']=$password;
+					$_SESSION['ID']=$row['id'];
+					$_SESSION['email']=$email;
+					$_SESSION['password']=$password;
 					if($row['is_admin'] == "1"){
 						$_SESSION['admindata']=array('email'=>$row['email'],'password'=>$row['password']);
-						header('Location:services.php');
+						echo ("<script type='text/javascript'>
+							location.href='admin/index.php'</script>");
+					}else{
+						$_SESSION['userdata']=array('email'=>$row['email'],'password'=>$row['password']);
+						echo ("<script type='text/javascript'>
+							location.href='index.php'</script>");
 					}
 				}
 				echo '<script>alert("Login is successfull!!")</script>';
@@ -43,6 +50,30 @@ class user{
 					echo '<script>alert("Firstly signup yourself")</script>';
 				}
 }
+
+	function emailapprove($email,$conn){
+		echo $email;
+		$sql = "UPDATE `tbl_user` SET `email_approved`= '1' WHERE `email` = '$email' ";
+		if ($conn-> query($sql) === TRUE) {
+			   // header('Location: login.php');
+		   } 
+	   else {
+		   
+		   echo "error";
+   }
+	}
+
+
+	function mobileapprove($email,$conn){
+		$sql = "UPDATE `tbl_user` SET `phone_approved`= '1' WHERE `email` = '$email' ";
+		if ($conn-> query($sql) === TRUE) {
+			   // header('Location: login.php');
+		   } 
+	   else {
+		   
+		   echo "error";
+   }
+	}
 }
 
 ?>
