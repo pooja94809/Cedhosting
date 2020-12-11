@@ -53,9 +53,10 @@ class user{
 
 	function emailapprove($email,$conn){
 		echo $email;
-		$sql = "UPDATE `tbl_user` SET `email_approved`= '1' WHERE `email` = '$email' ";
+		$sql = "UPDATE `tbl_user` SET `email_approved`= '1',`active`='1' WHERE `email` = '$email' ";
 		if ($conn-> query($sql) === TRUE) {
-			   // header('Location: login.php');
+			echo ("<script type='text/javascript'>
+							location.href='login.php'</script>");
 		   } 
 	   else {
 		   
@@ -65,9 +66,10 @@ class user{
 
 
 	function mobileapprove($email,$conn){
-		$sql = "UPDATE `tbl_user` SET `phone_approved`= '1' WHERE `email` = '$email' ";
+		$sql = "UPDATE `tbl_user` SET `phone_approved`= '1',`active`='1' WHERE `email` = '$email' ";
 		if ($conn-> query($sql) === TRUE) {
-			   // header('Location: login.php');
+			echo ("<script type='text/javascript'>
+			location.href='login.php'</script>");
 		   } 
 	   else {
 		   

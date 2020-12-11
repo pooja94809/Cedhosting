@@ -3,6 +3,7 @@ session_start();
 require_once("Dbcon.php");
 require_once("header.php");
 require_once("User.php");
+$dbcon=new dbcon();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\Exception;
 require '/home/cedcoss/vendor/autoload.php';
@@ -20,11 +21,11 @@ $mobile=$_GET['mobile'];
 // }
 if(isset($_POST['verifyemail'])){
 	echo ("<script>window.location.href='verification.php?email=".$email."&name=".$name."&mobile=".$mobile."';</script>");
-
 	$otp1 = rand(1000,9999);
 	$_SESSION['otp1']=$otp1;
 	$_SESSION['email']=$email;
 	$_SESSION['mobile']=$mobile;
+	// echo '<script>alert("Check your mail!! ")</script>';
 	$mail = new PHPMailer();
 	try {
 	$mail->isSMTP(true);
@@ -54,7 +55,7 @@ if(isset($_POST['verifyemail'])){
 	
 }
 if(isset($_POST['verifymobile'])){
-	echo ("<script>window.location.href='verification.php?email=".$email."&name=".$name."&mobile=".$mobile."';</script>");
+	echo ("<script>window.location.href='verification.php?email=".$email."&mobile=".$mobile."';</script>");
 	echo $mobile;
 	$otp = rand(1000,9999);
 	$_SESSION['otp']=$otp;
@@ -96,6 +97,7 @@ if(isset($_POST['verifymobile'])){
 	  echo "cURL Error #:" . $err;
 	} else {
 	  echo $response;
+	//   echo '<script>alert("Check your phone!! ")</script>';
 	}
 }
 if(isset($_POST['submitemail'])){
@@ -104,9 +106,9 @@ if(isset($_POST['submitemail'])){
 		echo ("<script>alert('Please Enter OTP');</script>");
 	}else{
 		if($_SESSION['otp1']==$_POST['emailotp']){
-			echo ("<script>alert('email is verified');</script>");
-			echo ("<script type='text/javascript'>
-							location.href='login.php'</script>");
+			echo ("<script>alert('email is verified now you can login yourself');</script>");
+			// echo ("<script type='text/javascript'>
+			// 				location.href='login.php'</script>");
 			$sql = $user -> emailapprove($email,$dbcon-> conn);
 			echo $sql;
 		}else{
@@ -120,7 +122,7 @@ if(isset($_POST['submitmobile'])){
 		echo ("<script>alert('Please Enter OTP');</script>");
 	}else{
 		if($_SESSION['otp']==$_POST['mobileotp']){
-			echo ("<script>alert('mobile is verified');</script>");
+			echo ("<script>alert('mobile is verified now you can login yourself');</script>");
 			$sql = $user -> mobileapprove($email,$dbcon-> conn);
 		}else{
 			echo ("<script>alert('mobile is not verified');</script>");

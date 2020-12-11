@@ -1,4 +1,18 @@
-<?php include("header.php"); ?>
+<?php
+include("header.php"); 
+require_once("../Dbcon.php");
+require_once("../product.php");
+$dbcon=new dbcon();
+$category1= new product();
+if(isset($_POST['create'])){
+  $category= isset($_POST['category'])?$_POST['category']:'';
+  echo $category;
+  $link= isset($_POST['link'])?$_POST['link']:'';
+  echo $link;
+  $sql = $category1 -> createcategory($category,$link,$dbcon-> conn);
+
+}
+?>
 <!-- Main content -->
 <div class="main-content">
     <!-- Page content -->
@@ -10,13 +24,13 @@
             <div class="card-header bg-transparent pb-5">
              
             <div class="card-body px-lg-5 py-lg-5">
-              <form role="form">
+              <form role="form" action="" method="POST">
                 <div class="form-group">
                   <div class="input-group input-group-merge input-group-alternative mb-3">
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-hat-3"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Hosting" type="text">
+                    <input class="form-control" placeholder="Hosting" type="text"  disabled>
                   </div>
                 </div>
                 <div class="form-group">
@@ -24,7 +38,7 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-email-83"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Category" type="text">
+                    <input class="form-control" placeholder="Category" name="category" type="text">
                   </div>
                 </div>
                 <div class="form-group">
@@ -32,10 +46,9 @@
                     <div class="input-group-prepend">
                       <span class="input-group-text"><i class="ni ni-lock-circle-open"></i></span>
                     </div>
-                    <input class="form-control" placeholder="Password" type="text">
+                    <input class="form-control" placeholder="link" name="link" type="text">
                   </div>
                 </div>
-                <div class="text-muted font-italic"><small>password strength: <span class="text-success font-weight-700">strong</span></small></div>
                 <div class="row my-4">
                   <div class="col-12">
                     <div class="custom-control custom-control-alternative custom-checkbox">
@@ -47,7 +60,7 @@
                   </div>
                 </div>
                 <div class="text-center">
-                  <button type="button" class="btn btn-primary mt-4">Create account</button>
+                  <button type="submit" class="btn btn-primary mt-4" name="create">Create Category</button>
                 </div>
               </form>
             </div>
@@ -56,4 +69,28 @@
       </div>
     </div>
   </div>
-  <?php include("footer.php"); ?>
+
+  <div class="row">
+        <div class="col-xl-12">
+          <div class="card">
+            <div class="table-responsive">
+              <table  id='tableData' class="table align-items-center table-flush cattable">
+                <thead class="thead-light">
+                  <tr>
+                    <th scope="col">Category Id</th>
+                    <th scope="col">Parent Id</th>
+                    <th scope="col">Category Name</th>
+                    <th scope="col">Link</th>
+                    <th scope="col">Status</th>
+                    <th scope="col">Date</th>
+                    <th id="actionth" scope="col">Action</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                </tbody>
+              </table>
+            </div>
+          </div>
+        </div>
+</div>
