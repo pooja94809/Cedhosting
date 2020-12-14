@@ -1,5 +1,6 @@
 <?php
-
+	require_once("Dbcon.php");
+	require_once("product.php");
 	$filename=basename($_SERVER['REQUEST_URI']);
 	$file=explode('?',$filename);
 	//echo $filename;

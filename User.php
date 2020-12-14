@@ -10,7 +10,10 @@ class user{
         	while($row=$this->result->fetch_assoc()){
         		if ($row["email"]===$email){
         			echo '<script>alert("already exist")</script>';
-        		}
+        		}if($row['mobile']===$mobile){
+					echo '<script>alert("mobile already exist")</script>';
+					return false;
+				}
         	}
         }else{
         	$sql = "INSERT INTO tbl_user(`email`,`name`,`mobile`,`email_approved`,`phone_approved`,`active`,`is_admin`,`sign_up_date`,`password`,`security_question`,`security_answer`) VALUES('".$email."','".$name."','".$mobile."','0','0','0','0',NOW(),'".$password."','".$question."','".$answer."')";

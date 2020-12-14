@@ -7,6 +7,7 @@
   <meta name="description" content="Start your development with a Dashboard for Bootstrap 4.">
   <meta name="author" content="Creative Tim">
   <title>Argon Dashboard - Free Dashboard for Bootstrap 4</title>
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.10.22/css/jquery.dataTables.min.css">
   <!-- Favicon -->
   <link rel="icon" href="assets/img/brand/favicon.png" type="image/png">
   <!-- Fonts -->
@@ -40,28 +41,34 @@
               </a>
             </li>
             <h6 class="navbar-heading p-0 text-muted">
+            <i class="ni ni-bullet-list-67 text-default"></i>
             <span class="docs-normal">Products</span>
           </h6>
           <!-- Navigation -->
           <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
+
               <a class="nav-link" href="category.php">
+              <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">Create Category</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="addproduct.php">
+              <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">Add Product</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+              <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">View Products</span>
 
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+              <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">Create New Offers</span>
 
               </a>
@@ -71,28 +78,33 @@
           </ul>
       
              <h6 class="navbar-heading p-0 text-muted">
+             <i class="ni ni-bullet-list-67 text-default"></i>
             <span class="docs-normal">Orders</span>
           </h6>
           <!-- Navigation -->
           <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+              <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">Pending Orders</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+              <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text"> Completed Orders</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+              <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">Cancelled Orders</span>
 
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+              <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">Cancelled Orders</span>
 
               </a>
@@ -102,73 +114,87 @@
           </ul>
 
              <h6 class="navbar-heading p-0 text-muted">
+             <i class="ni ni-bullet-list-67 text-default"></i>
             <span class="docs-normal">Services </span>
           </h6>
           <!-- Navigation -->
           <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+              <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">Active Services</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+              <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">Expired Services</span>
               </a>
                <hr class="my-3">
             </li>
           </ul>
             <h6 class="navbar-heading p-0 text-muted">
+            <i class="ni ni-bullet-list-67 text-default"></i>
             <span class="docs-normal">Users</span>
           </h6>
           <!-- Navigation -->
           <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+              <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">All User List</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
-                <span class="nav-link-text">Create New User</span>
+                
+              <i class="ni ni-single-02 text-yellow"></i>
+              <span class="nav-link-text">Create New User</span>
               </a>
                <hr class="my-3">
             </li>
           </ul>
              <h6 class="navbar-heading p-0 text-muted">
+             <i class="ni ni-bullet-list-67 text-default"></i>
             <span class="docs-normal">Blog </span>
           </h6>
           <!-- Navigation -->
           <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+              <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">Add New Blog</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+              <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">View all Blogs</span>
               </a>
                <hr class="my-3">
             </li>
           </ul>
               <h6 class="navbar-heading p-0 text-muted">
+              <i class="ni ni-bullet-list-67 text-default"></i>
             <span class="docs-normal">Accounts</span>
           </h6>
           <!-- Navigation -->
           <ul class="navbar-nav mb-md-3">
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+              <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">Update Company Info</span>
               </a>
             </li>
             <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+              <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">Change Security Ques</span>
               </a>
             </li>
              <li class="nav-item">
               <a class="nav-link" href="https://demos.creative-tim.com/argon-dashboard/docs/getting-started/overview.html" target="_blank">
+              <i class="ni ni-single-02 text-yellow"></i>
                 <span class="nav-link-text">Change Password</span>
               </a>
                <hr class="my-3">
